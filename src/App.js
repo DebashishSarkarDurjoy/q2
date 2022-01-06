@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import User from "./component/User"
 
 const App = () => {
   const [users, setUsers] = useState([]);
@@ -17,14 +18,25 @@ const App = () => {
     return data;
   }
 
+  const uponClick = (id) => {
+    console.log(id, typeof(users))
+    var text = "";
+    for (var prop in users) {
+      text += prop + ": " + users[prop];
+    }
+    return (
+      <div className="popup">
+        <p>{text}</p>
+      </div>
+    )
+  }
+
   return (
    <div className="body">
      {users.map((user) => (
        
-        <div className="container">
-          
-          <h1  key={user.id}>{user.name}</h1>
-          <h3> {user.email} </h3>
+        <div className="container" key={user.id}>
+          <User name={user.name} id={user.id} email={user.email} uponClick={uponClick} />
           
         </div>
       
