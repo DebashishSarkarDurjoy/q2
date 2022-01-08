@@ -1,11 +1,24 @@
+import Popup from "./Popup"
+import { useState } from "react";
+
+const User = ({ prop }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    
+    const uponClick = (prop) => {
+        console.log(prop.name);
+        setIsOpen(!isOpen);
+    }
 
 
-const User = ({ name, id, email, uponClick }) => {
     return (
         <div>
-            <h1>{name}</h1>
-            <h3> {email} </h3>
-            <button type="button" onClick={() => uponClick(id)}>Details</button>
+            <h1>{prop.name}</h1>
+            <button type="button" onClick={() => uponClick(prop)}>Details</button>
+            
+            {isOpen && 
+                <><Popup prop={prop} />
+                <button className="close-icon" type="button" onClick={() => uponClick(prop)}>X</button></>
+            }
         </div>
     )
 }
