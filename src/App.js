@@ -18,18 +18,6 @@ const App = () => {
     return data;
   }
 
-  // const uponClick = (id) => {
-  //   console.log(id, typeof(users))
-  //   var text = "";
-  //   for (var prop in users) {
-  //     text += prop + ": " + users[prop];
-  //   }
-  //   return (
-  //     <div className="popup">
-  //       <p>{text}</p>
-  //     </div>
-  //   )
-  // }
 
   return (
    <div className="body">
